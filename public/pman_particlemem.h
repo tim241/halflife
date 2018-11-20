@@ -5,6 +5,10 @@
 #pragma once
 #endif
 
+// fix C++ errors
+#define max fmax
+#define min fmin
+
 #include <vector>
 
 class CCoreTriangleEffect;

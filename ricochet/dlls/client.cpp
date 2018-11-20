@@ -67,8 +67,8 @@ extern void AddClientToArena( CBasePlayer *pPlayer );
 
 int GetHueFromRGB( float r, float g, float b )
 {
-	float fMax = max( max( r, g ) , b );
-	float fMin = min( min( r, g ) , b );
+	float fMax = fmax( fmax( r, g ) , b );
+	float fMin = fmin( fmin( r, g ) , b );
 	float fSaturation = 0;
 
 	if ( fMax != 0 )
@@ -1545,9 +1545,9 @@ int GetWeaponData( struct edict_s *player, struct weapon_data_s *info )
 						item->m_iId						= II.iId;
 						item->m_iClip					= pl->m_rgAmmo[gun->m_iPrimaryAmmoType];//gun->m_iClip;
 
-						item->m_flTimeWeaponIdle		= max( gun->m_flTimeWeaponIdle, -0.001 );
-						item->m_flNextPrimaryAttack		= max( gun->m_flNextPrimaryAttack, -0.001 );
-						item->m_flNextSecondaryAttack	= max( gun->m_flNextSecondaryAttack, -0.001 );
+						item->m_flTimeWeaponIdle		= fmax( gun->m_flTimeWeaponIdle, -0.001 );
+						item->m_flNextPrimaryAttack		= fmax( gun->m_flNextPrimaryAttack, -0.001 );
+						item->m_flNextSecondaryAttack	= fmax( gun->m_flNextSecondaryAttack, -0.001 );
 						item->m_fInReload				= gun->m_fInReload;
 					}
 				}
