@@ -13,6 +13,10 @@ set(G_COMPILER_OPTIONS -m32 -fpermissive -fno-strict-aliasing -DNDEBUG -DPOSIX -
 # Global linker options
 set(G_LINKER_OPTIONS "-m32 -shared -g2 -gdwarf-2 -g2")
 
+# Strip on Release builds
+set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -s")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -s")
+
 # Global path for libraries
 LINK_DIRECTORIES(linux)
 
