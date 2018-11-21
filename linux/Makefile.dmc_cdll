@@ -115,7 +115,7 @@ all: client_dmc.$(SHLIBEXT)
 
 client_dmc.$(SHLIBEXT): $(DMC_OBJS) $(PUBLIC_OBJS) $(COMMON_OBJS) $(GAME_SHARED_OBJS) $(PM_SHARED_OBJS)
 	$(CLINK) -o $(BUILD_DIR)/$@ $(DMC_OBJS) $(PUBLIC_OBJS) $(COMMON_OBJS) $(GAME_SHARED_OBJS) $(PM_SHARED_OBJS) $(LDFLAGS) $(CPP_LIB)
-	./gendbg.sh $(BUILD_DIR)/$@
+	./gendbg.sh -c=$(CFG) $(BUILD_DIR)/$@
 
 
 $(DMC_OBJ_DIR):

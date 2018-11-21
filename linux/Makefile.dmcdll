@@ -93,7 +93,7 @@ dirs:
 
 dmc.$(SHLIBEXT): $(DMCDLL_OBJS) $(PM_OBJS) $(GAME_SHARED_OBJS)
 	$(CLINK) $(SHLIBLDFLAGS) -o $(BUILD_DIR)/$@ $(DMCDLL_OBJS) $(PM_OBJS) $(GAME_SHARED_OBJS) $(LDFLAGS) $(CPP_LIB)
-	./gendbg.sh $(BUILD_DIR)/$@
+	./gendbg.sh -c=$(CFG) $(BUILD_DIR)/$@
 		
 $(DMCDLL_OBJ_DIR)/%.o : $(DMCDLL_SRC_DIR)/%.cpp
 	$(DO_DMCDLL_CC)

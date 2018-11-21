@@ -2,10 +2,11 @@
 
 UNAME=`uname`
 
+STRIP=strip
 OBJCOPY=objcopy
 
 function usage {
-	echo "$0 /path/to/input/file [-o /path/to/output/file ]"
+	echo "$0 [-c=release] /path/to/input/file"
 	echo ""
 }
 
@@ -14,24 +15,35 @@ if [ $# == 0 ]; then
 	exit 2
 fi
 
+CFG=debug
+
+for arg in $@
+do
+	case $arg in
+		-c=*|--config=*)
+			OPTARG="${arg/-c=/}"
+			OPTARG="${OPTARG/--config=/}"
+			CFG="$OPTARG"
+			shift
+			;;
+	esac
+done
+
 if [ $(basename $1) == $1 ]; then
 	INFILEDIR=$PWD
 else
 	INFILEDIR=$(cd ${1%/*} && echo $PWD)
 fi
 INFILE=$(basename $1)
-
 OUTFILEDIR=$INFILEDIR
-OUTFILE=$INFILE.dbg
 
-while getopts "o:" opt; do
-	case $opt in
-		o)
-			OUTFILEDIR=$(cd ${OPTARG%/*} && echo $PWD)
-			OUTFILE=$(basename $OPTARG)
-			;;
-	esac
-done
+if [ ! "$OUTFILE" ]; then
+	OUTFILE=$INFILE.dbg
+fi
+
+if [ "$CFG" = "release" ]; then
+	exit 0
+fi
 
 if [ "$OUTFILEDIR" != "$INFILEDIR" ]; then
 	INFILE=${INFILEDIR}/${INFILE}
