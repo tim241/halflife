@@ -11,7 +11,7 @@ INCLUDE_DIRECTORIES(public common engine game_shared)
 set(G_COMPILER_OPTIONS -m32 -fpermissive -fno-strict-aliasing -DNDEBUG -DPOSIX -D_POSIX -DLINUX -D_LINUX -DGNUC -DHL1 -Dstricmp=strcasecmp -D_strnicmp=strncasecmp -Dstrnicmp=strncasecmp -D_snprintf=snprintf -DQUIVER -DQUAKE2 -DVALVE_DLL -D_alloca=alloca -fno-exceptions -fexpensive-optimizations -D_vsnprintf=vsnprintf -DNO_MALLOC_OVERRIDE -Werror=return-type -DLINUX -D_LINUX -w -DDEDICATED -DSWDS)
 
 # Global linker options
-set(G_LINKER_OPTIONS "-m32 -shared -g2 -gdwarf-2 -g2")
+set(G_LINKER_OPTIONS "-m32")
 
 # Strip on Release builds
 set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -s")
