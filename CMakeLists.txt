@@ -5,7 +5,7 @@
 cmake_minimum_required(VERSION 3.12)
 
 # Global include directories
-INCLUDE_DIRECTORIES(public common engine game_shared /usr/include/malloc)
+INCLUDE_DIRECTORIES(public common engine game_shared)
 
 # Global compile options
 set(G_COMPILER_OPTIONS -m32 -fpermissive -fno-strict-aliasing -DNDEBUG -DPOSIX -D_POSIX -DLINUX -D_LINUX -DGNUC -DHL1 -Dstricmp=strcasecmp -D_strnicmp=strncasecmp -Dstrnicmp=strncasecmp -D_snprintf=snprintf -DQUIVER -DQUAKE2 -DVALVE_DLL -D_alloca=alloca -fno-exceptions -fexpensive-optimizations -D_vsnprintf=vsnprintf -DNO_MALLOC_OVERRIDE -Werror=return-type -DLINUX -D_LINUX -w -DDEDICATED -DSWDS)
