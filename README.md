@@ -8,6 +8,7 @@ This fork has a few additional features/enhancements
 * CMake build system
 * C++ Fixes for GCC
 * Added missing crowbar animations
+* Input code fixes
 
 Compiling
 ======================
